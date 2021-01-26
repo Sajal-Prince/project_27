@@ -23,13 +23,22 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	ground = new Ground(400 , 100 , 400 , 20);
-	ball1 = new Bob (250,300)
-	chain1 = new Chain ( ball1.body ,ground.body , -150 , 0);
+	ground = new Ground(400 , 100 , 400 , 20); 
+	bobDiameter = 50; 
+	startBobPositionX = width/2; 
+	startBobPositionY = height/4+300; 
 
-	ball2 = new Bob (300,300)
-	chain2 = new Chain ( ball2.body ,ground.body , -100 , 0);
+	ball1=new Bob(startBobPositionX-bobDiameter*2,startBobPositionY);
+	ball2=new Bob(startBobPositionX-bobDiameter,startBobPositionY); 
+	ball3=new Bob(startBobPositionX,startBobPositionY); 
+	ball4=new Bob(startBobPositionX+bobDiameter,startBobPositionY); 
+	ball5=new Bob(startBobPositionX+bobDiameter*2,startBobPositionY); 
 
+	chain1 = new Chain( ball1.body ,ground.body , -bobDiameter*2 , 0); 
+	chain2 = new Chain( ball2.body ,ground.body , -bobDiameter*1 , 0); 
+	chain3 = new Chain( ball3.body ,ground.body , 0 , 0); 
+	chain4 = new Chain( ball4.body ,ground.body , bobDiameter*1 , 0); 
+	chain5 = new Chain( ball5.body ,ground.body , bobDiameter*2 , 0);
 
 
 	Engine.run(engine);
@@ -49,6 +58,15 @@ function draw() {
 
   ball2.display();
   chain2.display();
+
+  ball3.display();
+  chain3.display();
+
+  ball4.display();
+  chain4.display();
+
+  ball5.display();
+  chain5.display();
 }
 
 
